@@ -1,67 +1,59 @@
 'use strict';
 
 var allImages = [];
-var maxRounds = 25;
-var actualRounds = 0;
-var imgOneElement = document.getElementById('imgOne');
-var imgTwoElement = document.getElementById('imgTwo');
-var imgThreeElement = document.getElementById('imgThree');
-var myimgBox = document.getElementById('imgBox');
-// console.log(imgOneElement);
+var myContainer = document.getElementById('imgBox');
+var imageOneElement = document.getElementById('imgOne');
+var imageTwoElement = document.getElementById('imgTwo');
+var imageThreeElement = document.getElementById('imgThree');
 
-
-function CataLog () {
-  constructor(name, src = 'jpg'); {
+class ProductImg {
+  constructor(name, src = 'src') {
     this.name = name;
-    this.src = `img/${name}.${src}`;
-    this.views = 0;
-    this.votes = 0;
+    this.src = `img/${name}.${'jpg'}`;
     allImages.push(this);
-
+    //what do i do with this src ?????????
   }
 }
 
-new CataLog('wine-glass');
-new CataLog('bag');
-new CataLog('tauntaun');
-console.log(cataLog);
+new ProductImg('bag');
+new ProductImg('tauntaun');
+new ProductImg('wine-glass');
 
 function getRandomIndex(max) {
   return Math.floor(Math.random() * Math.floor(max));
 }
-function showImages() {
-  var displayImage = [];
+function renderImages() {
+  var imageOneIndex = getRandomIndex(allImages.length);
+  var imageTwoIndex = getRandomIndex(allImages.length);
+  var imageThreeIndex = getRandomIndex(allImages.length);
+  while (imageOneIndex < imageTwoIndex) {
+    imageTwoIndex = getRandomIndex(allImages.length);
+  }
+  imageOneElement.src = allImages[imageOneIndex].src;
+  imageOneElement.alt = allImages[imageOneIndex].name;
+  imageOneElement.title = allImages[imageOneIndex].name;
+  allImages[imageOneIndex].view++;
+
+  imageTwoElement.src = allImages[imageTwoIndex].src;
+  imageTwoElement.alt = allImages[imageTwoIndex].name;
+  imageTwoElement.title = allImages[imageTwoIndex].name;
+  allImages[imageTwoIndex].views++;
+
+  imageThreeElement.src = allImages[imageThreeIndex].src;
+  imageThreeElement.alt = allImages[imageThreeIndex].name;
+  imageThreeElement.title = allImages[imageThreeIndex].name;
+  allImages[imageTwoIndex].views++;
+
+  function handleClick(event) {
+    var clickedImage = event.target.title;
+    console.log(clickedImage);
+
+    for (var i = 0; i < allImages.length; i++)
+      if (clickedImages === allImages[i].name) {
+        allImages[i].votes++;
+      }
+  }
+  renderImages();
+  myContainer.addEventListener('click', handleClick);
 }
-
-
-
-
-
-
-
-
-
-
-// while (this.displayImage.length > 4) {
-//   var newImg = getRandomIndex(allImages.length);
-//   while (this.displayImage.includes(newImg)) {
-//     newImg = getRandomIndex(allImages.length);
-//   }
-//   this.displayImage.push(newImg);
-// }
-
-// var oneIMG = allImages.shift();
-// var twoImg = allImages.shift();
-
-
-// imgOneElement.src = allImages[oneIMG].src;
-// imgOneElement.alt = allImages[oneIMG].name;
-// imgOneElement.title = allImages[oneIMG].name;
-// allImages[oneIMG].views++;
-
-// imgTwoElement.src = allImages[twoImg].src;
-// imgTwoElement.alt = allImages[twoImg].name;
-// imgTwoElement.title = allImages[twoImg].name;
-// allImages[twoImg].views++;
-
-// showImages();
+renderImages();
