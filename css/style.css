@@ -1,0 +1,27 @@
+body {
+background-color: teal;
+}
+
+h1{
+font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size: 3em;
+text-align: center;
+}
+
+h3 {
+  font-family: cursive;
+  font-size: 2em;
+  text-align: center;
+}
+h4{
+  font-family: cursive;
+  margin-top: 30px;
+  font-size: 1em;
+  text-align: center;
+}
+section{
+  width: 960;
+  margin-top: 15px ;
+  border: 2px solid black;
+
+}
