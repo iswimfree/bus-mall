@@ -52,3 +52,10 @@ As a marketing manager, I would like a visual representation of how many times a
 Using ChartJS (imported from CDN), display the vote totals and the number of times a product was viewed in a bar chart format. (hint: don’t forget about the < canvas> tags)
 Place the bar chart in the section located beneath your three product images
 The bar charts should only appear after all voting data has been collected.
+
+
+### next steps 
+
+1. making sure the three images are not the same as the last 3.
+2. create something inside the event listener that stops after reaching max clicks.
+3. show them results.

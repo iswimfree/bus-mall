@@ -90,3 +90,52 @@ function handleClick(event) {
     }
   } renderImages();
 }
+if (maxViews === maxClicks) {
+
+  myContainer.removeEventListener('click', handleClick);
+}
+function renderChart(){
+  var namesArray = [];
+  var votesArray = [];
+  var viewsArray = [];
+
+  for (var i = 0; i < allImages.length; i++){
+    namesArray.push(allImages[i].name);
+    votesArray.push(allImages[i].votes);
+    viewsArray.push(allImages[i].views);
+  }
+
+  var ctx = document.getElementById('myChart').getContext('2d');
+  var dataObject = {
+    type: 'bar',
+    data: {
+      labels: namesArray,
+      datasets: [{
+        label: 'Number of Votes',
+        data: votesArray,
+        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        borderColor: 'rgba(255, 99, 132, 1)',
+        borderWidth: 1
+      },
+      {
+        label: 'Number of Views',
+        data: viewsArray,
+        backgroundColor: 'rgba(153, 102, 255, 0.2)',
+        borderColor: 'rgba(153, 102, 255, 1)',
+        borderWidth: 1
+      }]
+    },
+    options: {
+      responsive: false,
+      scales: {
+        yAxes: [{
+          ticks: {
+            beginAtZero: true
+          }
+        }]
+      }
+    }
+  };
+  var myChart = new Chart(ctx, dataObject);
+}
+renderChart();
