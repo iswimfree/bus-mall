@@ -1,14 +1,16 @@
 # bus-mall
-bus mall projext 
 
-## collab 
-- clement (lastname) 
-- 
-## links used: 
+bus mall projext
 
+## collab
+
+- clement (lastname)
+- Shay
+  
+## links used
 
 ### instructions part 1
- 
+
 Instructions
 As a user, I would like to display three unique products by chance so that the viewers can pick a favorite.
 
@@ -40,7 +42,7 @@ Add a button with the text View Results, which when clicked displays the list of
 
 NOTE: Displayed product names should match the file name for the product. Example: the product represented with dog-duck.jpg should be displayed to the user as exactly “dog-duck” when the results are shown.
 
-## insructions charts 
+## insructions charts
 
 Below are your lab requirements in a user story format. Try and think up what the feature tasks would be for each story, once you are done, or you get stuck, review the provided feature tasks to see what the actual tasks are for each story.
 
@@ -53,8 +55,7 @@ Using ChartJS (imported from CDN), display the vote totals and the number of tim
 Place the bar chart in the section located beneath your three product images
 The bar charts should only appear after all voting data has been collected.
 
-
-### next steps 
+### next steps
 
 1. making sure the three images are not the same as the last 3.
 2. create something inside the event listener that stops after reaching max clicks.

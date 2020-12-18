@@ -5,7 +5,7 @@ var myContainer = document.getElementById('imgBox');
 var imageOneElement = document.getElementById('imgOne');
 var imageTwoElement = document.getElementById('imgTwo');
 var imageThreeElement = document.getElementById('imgThree');
-var maxClicks = 5;
+var maxClicks = 25;
 var maxViews = 0;
 
 
@@ -16,28 +16,31 @@ function ProductImg(name, src = 'jpg') {
   this.votes = 0;
   allImages.push(this);
 }
-
-
-new ProductImg('bag');
-new ProductImg('banana');
-new ProductImg('bathroom');
-new ProductImg('boots');
-new ProductImg('breakfast');
-new ProductImg('bubblegum');
-new ProductImg('chair');
-new ProductImg('cthulhu');
-new ProductImg('dog-duck');
-new ProductImg('dragon');
-new ProductImg('pen');
-new ProductImg('pet-sweep');
-new ProductImg('scissors');
-new ProductImg('shark');
-new ProductImg('sweep', 'png');
-new ProductImg('tauntaun');
-new ProductImg('unicorn');
-new ProductImg('usb', 'gif');
-new ProductImg('water-can');
-new ProductImg('wine-glass');
+var getproducts = localStorage.getItem('products');
+if (getproducts) {
+  allImages = JSON.parse(getproducts);
+} else {
+  new ProductImg('bag');
+  new ProductImg('banana');
+  new ProductImg('bathroom');
+  new ProductImg('boots');
+  new ProductImg('breakfast');
+  new ProductImg('bubblegum');
+  new ProductImg('chair');
+  new ProductImg('cthulhu');
+  new ProductImg('dog-duck');
+  new ProductImg('dragon');
+  new ProductImg('pen');
+  new ProductImg('pet-sweep');
+  new ProductImg('scissors');
+  new ProductImg('shark');
+  new ProductImg('sweep', 'png');
+  new ProductImg('tauntaun');
+  new ProductImg('unicorn');
+  new ProductImg('usb', 'gif');
+  new ProductImg('water-can');
+  new ProductImg('wine-glass');
+}
 
 function getRandomIndex(max) {
   return Math.floor(Math.random() * Math.floor(max));
@@ -83,29 +86,43 @@ myContainer.addEventListener('click', handleClick);
 function handleClick(event) {
   var clickedImage = event.target.title;
   console.log(clickedImage);
-
+  maxViews++;
   for (var i = 0; i < allImages.length; i++) {
     if (clickedImage === allImages[i].name) {
       allImages[i].votes++;
     }
-  } renderImages();
-}
-if (maxViews === maxClicks) {
+  } if (maxViews === maxClicks) {
+    myContainer.removeEventListener('click', handleClick);
 
-  myContainer.removeEventListener('click', handleClick);
+  }
+  renderImages();
 }
-function renderChart(){
+var newVariable = document.getElementById('results');
+newVariable.addEventListener('click', newResults);
+
+function newResults(event) {
+  var clickResults = event.target.id;
+  if (clickResults === 'results') {
+    var stringProducts = JSON.stringify(allImages);
+    localStorage.setItem('products', stringProducts);
+    renderChart();
+  }
+}
+
+
+function renderChart() {
   var namesArray = [];
   var votesArray = [];
   var viewsArray = [];
 
-  for (var i = 0; i < allImages.length; i++){
+  for (var i = 0; i < allImages.length; i++) {
     namesArray.push(allImages[i].name);
     votesArray.push(allImages[i].votes);
     viewsArray.push(allImages[i].views);
   }
 
   var ctx = document.getElementById('myChart').getContext('2d');
+
   var dataObject = {
     type: 'bar',
     data: {
@@ -115,14 +132,14 @@ function renderChart(){
         data: votesArray,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
         borderColor: 'rgba(255, 99, 132, 1)',
-        borderWidth: 1
+        borderWidth: 2
       },
       {
         label: 'Number of Views',
         data: viewsArray,
         backgroundColor: 'rgba(153, 102, 255, 0.2)',
         borderColor: 'rgba(153, 102, 255, 1)',
-        borderWidth: 1
+        borderWidth: 2
       }]
     },
     options: {
@@ -138,4 +155,4 @@ function renderChart(){
   };
   var myChart = new Chart(ctx, dataObject);
 }
-renderChart();
+
