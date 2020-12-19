@@ -2,6 +2,8 @@
     background: url(../headerimg/tile2.jpg);
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+    overflow: scroll;
   }
 
   .header {
@@ -42,13 +44,14 @@
   section {
     width: 1200px;
     height: 300px;
-    margin: auto;
+    margin: auto auto;
     margin-top: 15px;
-    border: 4px solid rgb(140,0,52);
+    border: 3mm ridge rgb(140, 0, 52);
   }
 
   .img {
-    background-color: rgb(140,0,52);
+    border: solid black;
+    background-color: rgb(140, 0, 52);
     width: 300px;
     height: 220px;
     padding: 2px;
@@ -64,7 +67,7 @@
   }
 
   .results {
-    background: rgb(140,0,52);
+    background: rgb(140, 0, 52);
     color: white;
     text-align: center;
     border: 1px solid black;
