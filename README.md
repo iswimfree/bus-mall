@@ -9,6 +9,11 @@ bus mall projext
   
 ## links used
 
+- https://encycolorpedia.com/efe1a1
+- https://icolorpalette.com/color/red-wine
+- https://kaboompics.com/
+- https://www.w3schools.com/howto/howto_css_hero_image.asp
+
 ### instructions part 1
 
 Instructions

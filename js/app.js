@@ -130,14 +130,14 @@ function renderChart() {
       datasets: [{
         label: 'Number of Votes',
         data: votesArray,
-        backgroundColor: 'rgba(255, 99, 132, 0.2)',
+        backgroundColor: 'rgba(255, 220, 70)',
         borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 2
       },
       {
         label: 'Number of Views',
         data: viewsArray,
-        backgroundColor: 'rgba(255, 255, 255, 1)',
+        backgroundColor: 'rgba(140,0,52,1.00)',
         borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 2
       }]
