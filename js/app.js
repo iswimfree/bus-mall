@@ -131,14 +131,14 @@ function renderChart() {
         label: 'Number of Votes',
         data: votesArray,
         backgroundColor: 'rgba(255, 99, 132, 0.2)',
-        borderColor: 'rgba(255, 99, 132, 1)',
+        borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 2
       },
       {
         label: 'Number of Views',
         data: viewsArray,
-        backgroundColor: 'rgba(153, 102, 255, 0.2)',
-        borderColor: 'rgba(153, 102, 255, 1)',
+        backgroundColor: 'rgba(255, 255, 255, 1)',
+        borderColor: 'rgba(0, 0, 0, 1)',
         borderWidth: 2
       }]
     },

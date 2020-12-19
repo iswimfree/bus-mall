@@ -11,19 +11,29 @@
 
 <body>
   <header>
-    <h1>BusMall</h1>
+
+
   </header>
   <main>
-    <h3>Captivating From Page One</h3>
-    <h4>Please, pick your favorite.</h4>
+    <div class="header">
+      <h1>BusMall</h1>
+      <h3>Captivating From Page One</h3>
+      <h4>Please, pick your favorite product below.</h4>
+    </div> 
+ <div class="results">
+      <ul id="results">Results</ul>
+    </div>
+    
+
     <section id="imgBox">
-      <img class="img"id="imgOne">
-      <img class="img"id="imgTwo">
-      <img class="img"id="imgThree">
+      <img class="img" id="imgOne">
+      <img class="img" id="imgTwo">
+      <img class="img" id="imgThree">
     </section>
-<canvas id="myChart"></canvas>
-<ul id="results">See the results of your clicks!</ul>
-  </main>
+
+    <canvas id="myChart"></canvas>
+    </main>
+
   <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.min.js"></script>
   <script src="js/app.js"></script>
 </body>
